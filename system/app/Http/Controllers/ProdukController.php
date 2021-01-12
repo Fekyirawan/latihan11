@@ -92,5 +92,35 @@ class ProdukController extends Controller{
 		return view('produk.index', $data);
 	}
 
+	public function testCollection(){
+		$list_bike = ['Honda', 'Yamaha', 'Kawasaki', 'Suzuki', 'Vespa', 'BMW', 'KTM'];
+		$list_bike = collect($list_bike);
+		$list_produk = Produk::all();
+		
+		//Sorting
+		//Sort By Harga Terendah
+		//dd(list_produk->sortBy('harga'));
+		//Sort By Harga Tertinggi
+		// dd($list_produk->sortByDesc('harga'));
+		// return view('test-collection', $data);
+
+		//Filter
+		//$filtered = $list_produk->filter(function($item){
+			//return $item->harga < 80000;
+		//});
+		//dd($filtered);
+
+		//$sum = $list_produk->sum('stok');
+		//dd($sum);
+
+		//dd($list_bike, $collection, $list_produk);
+
+		$data['list'] = Produk::paginate(5);
+		return view('test-collection', $data);
+
+		
+		dd($list_bike, $collection, $list_produk);
+	}
+
 }
 

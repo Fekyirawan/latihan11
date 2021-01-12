@@ -37,5 +37,6 @@ Route::get('beranda', [HomeController::class, 'showberanda']);
 Route::resource('produk', ProdukController::class);
 Route::resource('user', UserController::class);
 
-
 });
+
+Route::get('test-collection', [ProdukController::class, 'testCollection']);
