@@ -5,6 +5,7 @@ use App\http\Controllers\HomeController;
 use App\http\Controllers\AuthController;
 use App\http\Controllers\ProdukController;
 use App\http\Controllers\UserController;
+use App\Http\Controllers\ClientProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ Route::get('client', [HomeController::class, 'client']);
 
 Route::get('test/{produk}', [HomeController::class, 'test']);
 
+// Halaman Admin
+
 Route::prefix('admin')->middleware('auth')->group(function(){
 
 Route::post('produk/filter', [ProdukController::class, 'filter']);
@@ -40,3 +43,7 @@ Route::resource('user', UserController::class);
 });
 
 Route::get('test-collection', [ProdukController::class, 'testCollection']);
+
+// Halaman Client
+
+Route::get('index', [ClientProdukController::class, 'index']);
