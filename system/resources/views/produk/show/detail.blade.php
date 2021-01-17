@@ -1,3 +1,8 @@
+ 
+ <p>
+   	<img src="{{url("system/public/$produk->foto")}}" alt="">
+ </p>
+
  <p>
    {{$produk->harga}} |
    Stok : {{$produk->stok}} |
